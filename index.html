@@ -31,11 +31,24 @@
         <p class="name">xxx</p>
       </div>
     </div>
-    <audio autoplay>
-      <source
-        src="y2mate.com - أغنية البداية عهد الأصدقاء كاريوكي  Ahed alasdika2 karaoke.mp3"
-        type="audio/wav"
-      />
+    <audio id="backgroundAudio" src="y2mate.com - أغنية البداية عهد الأصدقاء كاريوكي  Ahed alasdika2 karaoke.mp3" autoplay loop class="song"></audio>
     </audio>
+    <button id="toggleButton">اكبسي هون</button>
+
+    <script>
+      const audio = document.getElementById("backgroundAudio");
+      const toggleButton = document.getElementById("toggleButton");
+    
+      toggleButton.addEventListener("click", function() {
+        if (audio.paused) {
+          audio.play();
+          audio.muted = false; // Unmute when user interacts
+          toggleButton.textContent = "Pause Sound";
+        } else {
+          audio.pause();
+          toggleButton.textContent = "Play Sound";
+        }
+      });
+    </script>
   </body>
 </html>
